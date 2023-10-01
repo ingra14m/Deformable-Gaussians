@@ -1,65 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="description"
+          content="Deformable 3D Gaussians for High-Fidelity Monocular Dynamic Scene Reconstruction">
+    <meta name="keywords" content="Monocular Reconstruction, Dynamic, 3D Gaussian Splatting">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Deformable 3D Gaussians for High-Fidelity Monocular Dynamic Scene Reconstruction</title>
-    <!-- Bootstrap -->
-    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,800italic,400,700,800' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="css/project.css" media="screen" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/iconize.css" />
-    <script src="js/google-code-prettify/prettify.js"></script> -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro|Jost"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/favicon.png">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
 </head>
+<body>
 
-<!-- cover -->
-<section>
-    <div class="jumbotron text-center mt-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2>Deformable 3D Gaussians for High-Fidelity Monocular <br> Dynamic Scene Reconstruction
-                    </h2>
-                    <h4 style="color:#5a6268;">Arxiv 2023 </h4>
-                    <hr>
-                    <h6>
-                        <a>Ziyi Yang</a><sup>1,2</sup>,
-                        <a>Xinyu Gao</a><sup>1</sup>,
-                        <a>Wen Zhou</a><sup>2</sup>,
-                        <a>Shaohui Jiao</a><sup>2</sup>,
-                        <a>Yuqing Zhang</a><sup>1</sup>,
-                        <a>Xiaogang Jin</a><sup>1&Dagger;</sup>
-                    </h6>
-                    <p>
-                        <sup>1</sup>State Key Laboratory of CAD&CG, Zhejiang University &nbsp;&nbsp;
-                        <sup>2</sup>ByteDance Inc.&nbsp;&nbsp;&nbsp;&nbsp;
-                    </p>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="https://ingra14m.github.io/Deformable-3D-Gaussians.github.io/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+            </a>
 
-                    <div class="row justify-content-center">
-                        <div class="column">
-                            <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2309.13101"
-                                               role="button" target="_blank">
-                                <i class="fa fa-file"></i> Paper</a></p>
-                        </div>
-                        <div class="column">
-                            <p class="mb-5"><a class="btn btn-large btn-light"
-                                               href="https://github.com/ingra14m/Deformable-3D-Gaussians" role="button"
-                                               target="_blank">
-                                <i class="fa fa-github-alt"></i> Code </a></p>
-                        </div>
-                        <div class="column">
-                            <p class="mb-5"><a class="btn btn-large btn-light"
-                                               href="https://drive.google.com/file/d/1uHVyApwqugXTFuIRRlE4abTW8_rrVeIK/view?usp=sharing"
-                                               role="button" target="_blank">
-                                <i class="fa fa-database"></i> Synthetic Data </a></p>
-                        </div>
-                        <div class="column">
-                            <p class="mb-5"><a class="btn btn-large btn-light"
-                                               href="https://github.com/google/hypernerf/releases/tag/v0.1"
-                                               role="button" target="_blank">
-                                <i class="fa fa-database"></i> Real Data </a></p>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    Related Research
+                </a>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/">
+                        3D Gaussian Splatting
+                    </a>
+                    <a class="navbar-item" href="https://www.albertpumarola.com/research/D-NeRF/index.html">
+                        D-NeRF
+                    </a>
+                    <a class="navbar-item" href="https://jaminfong.cn/tineuvox/">
+                        TiNeuVox
+                    </a>
+                    <a class="navbar-item" href="https://sarafridov.github.io/K-Planes/">
+                        K-Planes
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title"><span class="textsc">Deformable 3D Gaussians</span> for
+                        High-Fidelity Monocular Dynamic Scene Reconstruction </h1>
+                    <h3 style="color:#5a6268;" class="title is-3">Arxiv 2023 </h3>
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">
+                            <a>Ziyi Yang</a><sup>1,2</sup>,
+                            <a>Xinyu Gao</a><sup>1</sup>,
+                            <a>Wen Zhou</a><sup>2</sup>,
+                            <a>Shaohui Jiao</a><sup>2</sup>,
+                            <a>Yuqing Zhang</a><sup>1</sup>,
+                            <a>Xiaogang Jin</a><sup>1&Dagger;</sup>
+                        </span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block"><sup>1</sup>State Key Laboratory of CAD&CG, Zhejiang University</span>
+                        <span class="author-block"><sup>2</sup>ByteDance Inc.</span>
+                    </div>
+
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!-- PDF Link. -->
+                            <span class="link-block">
+                                <a href="https://arxiv.org/abs/2309.13101"
+                                   class="external-link button is-normal is-rounded is-dark">
+                                  <span class="icon">
+                                      <i class="fas fa-file-pdf"></i>
+                                  </span>
+                                  <span>Paper</span>
+                                </a>
+                            </span>
+                            <!-- Code Link -->
+                            <span class="link-block">
+                                <a href="https://github.com/ingra14m/Deformable-3D-Gaussians"
+                                   class="external-link button is-normal is-rounded is-dark">
+                                  <span class="icon">
+                                      <i class="fab fa-github"></i>
+                                  </span>
+                                  <span>Code</span>
+                                </a>
+                            </span>
+                            <!-- Dataset Link. -->
+                            <span class="link-block">
+                                <a href="https://drive.google.com/file/d/1uHVyApwqugXTFuIRRlE4abTW8_rrVeIK/view?usp=sharing"
+                                   class="external-link button is-normal is-rounded is-dark">
+                                  <span class="icon">
+                                      <i class="far fa-images"></i>
+                                  </span>
+                                  <span>Synthetic Data</span>
+                                </a>
+                            </span>
+                            <span class="link-block">
+                                <a href="https://github.com/google/hypernerf/releases/tag/v0.1"
+                                   class="external-link button is-normal is-rounded is-dark">
+                                  <span class="icon">
+                                      <i class="far fa-images"></i>
+                                  </span>
+                                  <span> Real Data </span>
+                                </a>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -69,131 +158,196 @@
 </section>
 
 
-<!-- abstract -->
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h2>Abstract</h2>
-                <hr style="margin-top:0px">
+<section class="hero is-light is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div class="content has-text-justified">
+                <h3 class="title is-3 is-centered has-text-centered">Results on the D-NeRF Synthetic Dataset</h3>
+            </div>
 
-                <p class="text-left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Implicit neural representation has opened up new
-                    avenues for dynamic scene reconstruction and rendering. Nonetheless, state-of-the-art methods of
-                    dynamic neural rendering rely heavily on these implicit representations, which frequently struggle
-                    with accurately capturing the intricate details of objects in the scene. Furthermore, implicit
-                    methods struggle to achieve real-time rendering in general dynamic scenes, limiting their use in a
-                    wide range of tasks. To address the issues, we propose a deformable 3D Gaussians Splatting method
-                    that reconstructs scenes using explicit 3D Gaussians and learns Gaussians in canonical space with a
-                    deformation field to model monocular dynamic scenes. We also introduced a smoothing training
-                    mechanism with no extra overhead to mitigate the impact of inaccurate poses in real datasets on the
-                    smoothness of time interpolation tasks. Through differential gaussian rasterization, the deformable
-                    3D Gaussians not only achieve higher rendering quality but also real-time rendering speed.
-                    Experiments show that our method outperforms existing methods significantly in terms of both
-                    rendering quality and speed, making it well-suited for tasks such as novel-view synthesis, time
-                    synthesis, and real-time rendering.
-                </p>
-
+            <div id="results-carousel" class="carousel results-carousel">
+                <div class="item item-fullbody">
+                    <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+                        <source src="video/jump.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-steve">
+                    <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                        <source src="video/stand.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-fullbody">
+                    <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+                        <source src="video/trex.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-chair-tp">
+                    <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+                        <source src="video/mutant.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-shiba">
+                    <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+                        <source src="video/lego.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-blueshirt">
+                    <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+                        <source src="video/hook.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-mask">
+                    <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+                        <source src="video/hell.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-coffee">
+                    <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+                        <source src="video/bouncing.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<br>
 
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h2>Pipeline of Deformable 3D Gaussians</h2>
-                <hr style="margin-top:0px">
-                <img src="img/pipeline.png" alt="Pipeline of Deformable 3D Gaussians" width="95%" height="95%">
-                <p class="text-left">
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<br>
-
-<section>
-    <div class="container">
-        <div class="col-12 text-center">
-            <h2 style="margin-top: 50px">Results on the D-NeRF Synthetic dataset</h2>
-            <hr style="margin-top:0px">
-            <div class="row text-md-center" style="margin-bottom: 20px">
-                <video width="25%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                    <source src="video/bouncing.mp4" type="video/mp4">
-                </video>
-                <video width="25%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                    <source src="video/hell.mp4" type="video/mp4">
-                </video>
-                <video width="25%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                    <source src="video/hook.mp4" type="video/mp4">
-                </video>
-                <video width="25%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                    <source src="video/jump.mp4" type="video/mp4">
-                </video>
+<section class="hero is-light">
+    <div class="hero-body">
+        <div class="container">
+            <div class="content has-text-justified">
+                <h3 class="title is-3 is-centered has-text-centered">Results on the HyperNeRF Real Dataset</h3>
             </div>
 
-            <div class="row text-center">
-                <video width="25%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                    <source src="video/lego.mp4" type="video/mp4">
-                </video>
-                <video width="25%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                    <source src="video/mutant.mp4" type="video/mp4">
-                </video>
-                <video width="25%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                    <source src="video/stand.mp4" type="video/mp4">
-                </video>
-                <video width="25%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                    <source src="video/trex.mp4" type="video/mp4">
-                </video>
+            <div id="results-carousel" class="carousel results-carousel">
+                <div class="item item-fullbody">
+                    <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+                        <source src="video/torchocolate.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-steve">
+                    <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                        <source src="video/cookie.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-fullbody">
+                    <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+                        <source src="video/ame.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-chair-tp">
+                    <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+                        <source src="video/chicken.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
             </div>
-
-        </div>
-    </div>
-</section>
-
-<br>
-
-<section>
-    <div class="container">
-        <div class="col-12 text-center">
-            <h2 style="margin-top: 50px">Results on the HyperNeRF Real dataset</h2>
-            <hr style="margin-top:0px">
-
-            <p>
-                A demo for the HyperNeRF dataset will be released shortly. I would be immensely grateful if someone could provide the code displaying the HyperNeRF dataset as showcased on the project pages of HyperNeRF or TiNeuVox.
-            </p>
-
+<!--            <div class="columns is-centered has-text-centered">-->
+<!--                <div class="column">-->
+<!--                    <h4 class="is-4">-->
+<!--                        These videos are synthesized with novel time and view with sparse time-view images as input.-->
+<!--                    </h4>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </div>
 </section>
 
 
-<!-- citing -->
-<div class="container">
-    <div class="row ">
-        <div class="col-12">
-            <h3>Citation</h3>
-            <hr style="margin-top:0px">
-            <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
-<code>@article{yang2023deformable3dgs,
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="content has-text-justified">
+            <h2 class="title is-3 is-centered has-text-centered">Pipeline of Deformable 3D Gaussians</h2>
+            <!--            <p>-->
+            <!--                The HyperNeRF architecture is a straightforward extension to Nerfies. The key difference is-->
+            <!--                that the template NeRF is conditioned on additional higher-dimensional coordinates, where-->
+            <!--                the higher dimensional coordinates are given by an "ambient slicing surface" which can be-->
+            <!--                thought of as a higher dimensional analog to the deformation field.-->
+            <!--            </p>-->
+            <div class="has-text-centered">
+                <img style="width: 90%;" src="img/pipeline.png"
+                     alt="HyperNeRF architecture."/>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Implicit neural representation has opened up new avenues for dynamic scene reconstruction and
+                        rendering. Nonetheless, state-of-the-art methods of dynamic neural rendering rely heavily on
+                        these implicit representations, which frequently struggle with accurately capturing the
+                        intricate details of objects in the scene. Furthermore, implicit methods struggle to achieve
+                        real-time rendering in general dynamic scenes, limiting their use in a wide range of tasks. To
+                        address the issues, we propose a deformable 3D Gaussians Splatting method that reconstructs
+                        scenes using explicit 3D Gaussians and learns Gaussians in canonical space with a deformation
+                        field to model monocular dynamic scenes. We also introduced a smoothing training mechanism with
+                        no extra overhead to mitigate the impact of inaccurate poses in real datasets on the smoothness
+                        of time interpolation tasks. Through differential gaussian rasterization, the deformable 3D
+                        Gaussians not only achieve higher rendering quality but also real-time rendering speed.
+                        Experiments show that our method outperforms existing methods significantly in terms of both
+                        rendering quality and speed, making it well-suited for tasks such as novel-view synthesis, time
+                        synthesis, and real-time rendering. We plan to release our code and data soon.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--/ Abstract. -->
+
+    </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@article{yang2023deformable3dgs,
     title={Deformable 3D Gaussians for High-Fidelity Monocular Dynamic Scene Reconstruction},
     author={Yang, Ziyi and Gao, Xinyu and Zhou, Wen and Jiao, Shaohui and Zhang, Yuqing and Jin, Xiaogang},
     journal={arXiv preprint arXiv:2309.13101},
     year={2023}
-}</code>
-              </pre>
-            <hr>
+}</code></pre>
+    </div>
+</section>
+
+
+<footer class="footer is-center">
+    <div class="container">
+        <div class="content has-text-centered">
+            <a class="icon-link" href="https://github.com/ingra14m/Deformable-3D-Gaussians" class="external-link"
+               disabled>
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+                    <p>
+                        We thank the authors of <a href="https://github.com/nerfies/nerfies.github.io"><span
+                            class="textsc">Nerfies</span></a> that kindly open sourced the template of this website.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
-<footer class="text-center" style="margin-bottom:10px">
-    Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
 </footer>
 
 </body>
